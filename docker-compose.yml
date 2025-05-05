@@ -26,7 +26,8 @@ services:
     image: docker.elastic.co/logstash/logstash:8.11.0
     container_name: logstash
     volumes:
-      - ./logstash/movies_pipeline.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/movies_pipeline.conf:/usr/share/logstash/pipeline/movies.conf
+      - ./logstash/filebeat_pipeline.conf:/usr/share/logstash/pipeline/filebeat.conf
       - ./data/input:/usr/share/logstash/input
     networks:
       - elk
